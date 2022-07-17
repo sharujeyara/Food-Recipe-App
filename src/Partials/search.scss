@@ -1,0 +1,43 @@
+// Recipes page
+.search-container{
+    margin-top: 1em;
+    .item{
+        display: inline-block;
+        background-color: var(--primary-color);
+        padding: .5em 1em;
+        margin: 0 1em 1em 0;
+        color: #fff;
+        border-radius: 30px;
+        box-shadow: 0 3px  6px var(--shadow-color);
+        animation: getAnimation(.5s) slideInRight forwards;
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.search-box{
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    input, .btn{
+        height: 35px;
+    }
+    input{
+        min-width: 250px;
+        padding: 0 .5em;
+        border-radius: 5px 0 0 5px;
+        border: 1px solid #4d4d4d;
+        outline:none;
+    }
+    .btn{
+        padding-block: 0px;
+        padding-inline: .75em;
+        border-radius: 0 5px 5px 0;
+        background-color: var(--primary-color);
+        color: #fff;
+        border: 1px solid #4d4d4d;
+     
+    }
+    
+}

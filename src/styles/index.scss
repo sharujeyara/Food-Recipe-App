@@ -1,0 +1,225 @@
+:root {
+    --background-color: #fff;
+    --background-light: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --primary-color: rgb(255, 0, 86);
+    --text-color: #0A0A0A;
+    --text-light: #575757;
+    --font-size: 16px;
+    --animation-speed: 0.5;
+}
+
+@function getAnimation($duration:number) {
+    @return calc($duration * var(--animation-speed));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: var(--font-size);
+    padding-top: 3.5em;
+}
+
+.container {
+    padding-inline: 25vw;
+}
+
+.main {
+    padding-block: 3vw;
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 3vw;
+
+    .title {
+        font-size: 3.8em;
+        color: var(--text-color);
+        margin-bottom: .25em;
+    }
+
+    .info {
+        letter-spacing: 1px;
+        line-height: 1.3em;
+        margin-bottom: 1.1em;
+        color: var(--text-light);
+        font-size: 1.1em;
+    }
+
+    .col {
+        width: 50%;
+    }
+}
+
+@import "/src/Partials/secondsection.scss";
+
+
+
+
+.button {
+    border: green;
+    background-color: var(--primary-color);
+    padding: .75em 1em;
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.1em;
+    outline: navy;
+    letter-spacing: 1px;
+    font-weight: bold;
+    box-shadow: 0 5px 6px var(--shadow-color);
+
+    &:hover {
+        box-shadow: 0 1px 3px var(--shadow-color)
+    }
+}
+
+.custom-image {
+    background-color: red;
+    height: 0;
+    width: 100%;
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@import "/src/Partials/navbar.scss";
+@import "/src/Partials/animation.scss";
+@import "/src/Partials/mainsection.scss";
+@import "/src/Partials/Cheifsection.scss";
+@import "/src/Partials/quotesection.scss";
+@import "/src/Partials/footer.scss";
+@import "/src/Partials/search.scss";
+
+// Recipe Section
+.recipe-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap: 1.5em;
+    margin-top: 2em;
+}
+
+.recipe-card{
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    .info{
+        padding: 15px;
+    }
+    .custom-image{
+        z-index: -1;
+    }
+    .auther{
+        height: 100px;
+        width: 100px;  
+        border-radius: 50%;
+        border: 3px solid var(--background-color);
+        box-shadow: 0 1px 3px var(--shadow-color);
+        margin-top: -50px;
+        z-index: 2;
+    }
+    .title{
+        font-size: 1.25em;
+        font-weight: bold;
+        margin-bottom: .5em;
+        color: var(--text-color);
+        margin-top: .5em;
+    }
+    .recipe-para{
+        color: var(--text-light);
+        font-size: .9em;
+        letter-spacing: 1px;
+        margin-bottom: .75em;
+    }
+    .view-btn{
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1em;
+        display: inline-block;
+    }
+}
+
+
+
+@media screen and (max-width:1500px) {
+    .container {
+        padding-inline: 16vw;
+    }
+}
+
+@media screen and (max-width:1050px) {
+    .container {
+        padding-inline: 12vw;
+    }
+}
+
+@media screen and(max-width: 768px) {
+    .navbar {
+        .nav-links {
+            display: none;
+        }
+    }
+
+    .sidebar-btn {
+        display: block;
+    }
+
+    .cheif-card {
+        box-shadow: 0 3px 5px 0;
+    }
+
+    .section {
+        .col {
+            width: 100%;
+            text-align: center;
+            padding: 0 !important;
+            margin-bottom: 2em;
+        }
+    }
+
+    .second-list {
+        display: inline-block;
+        margin: 1em;
+    }
+
+    .col{
+        .title{
+            font-size: 45px;
+            font-weight: bold;
+        }
+    }
+
+    .container {
+        padding-inline: 6vw;
+    }
+
+    .footer{
+        grid-template-columns: repeat(4,1fr);
+        .footer-section:nth-child(1){
+            grid-column: span 4;
+            text-align: justify;
+        }
+        .footer-section:nth-child(2), .footer-section:nth-child(3){
+            grid-column: span 2;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding-inline: 3vw;
+    }
+}
